@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="manifest" href="manifest.webmanifest"><meta name="theme-color" content="#0f6b6b"><link rel="apple-touch-icon" href="icon-192.png"><title>پرسشنامه سلامت عمومی GHQ-28</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;800&display=swap">
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+--bg:#eef3f3;--card:#fff;--tx:#17302f;--mut:#5b7170;--ac:#0f6b6b;--acx:#fff;--bd:#cfdcdc;--sel:#d6eeee;
+--l0:#2a8a5a;--l1:#b8860b;--l2:#d2691e;--l3:#c0392b;--warn:#fdecea;--warnx:#7a1f16}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1a1a;--card:#162525;--tx:#e3eeee;--mut:#97b0af;--ac:#4fc3c3;--acx:#06201f;--bd:#2b4443;--sel:#1d4443;--l0:#4cc28a;--l1:#e0b13a;--l2:#f0925a;--l3:#ff7b6b;--warn:#3a1b18;--warnx:#ffc9c2}}
+:root[data-theme="dark"]{--bg:#0f1a1a;--card:#162525;--tx:#e3eeee;--mut:#97b0af;--ac:#4fc3c3;--acx:#06201f;--bd:#2b4443;--sel:#1d4443;--l0:#4cc28a;--l1:#e0b13a;--l2:#f0925a;--l3:#ff7b6b;--warn:#3a1b18;--warnx:#ffc9c2}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 70px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:400 16px/1.9 Vazirmatn,Tahoma,sans-serif}
+main{max-width:760px;margin:0 auto;padding:16px}
+h1{font-size:26px;font-weight:800;margin:8px 0 4px}h2{font-size:19px;font-weight:800;margin:0 0 4px}h3{font-size:16px;font-weight:600;margin:16px 0 6px}
+p{margin:6px 0}.mut{color:var(--mut);font-size:14px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:18px;margin:14px 0}
+.sec{border-inline-start:5px solid var(--ac)}
+label.f{display:block;font-size:14px;color:var(--mut);margin:8px 0 2px}
+input,select,textarea{width:100%;font:inherit;padding:9px 11px;border:1px solid var(--bd);border-radius:8px;background:var(--bg);color:var(--tx)}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+button{font:inherit;cursor:pointer}
+.btn{background:var(--ac);color:var(--acx);border:0;border-radius:10px;padding:12px 22px;font-weight:600}
+.btn.alt{background:transparent;color:var(--ac);border:1px solid var(--ac)}
+.q{padding:12px 0;border-top:1px solid var(--bd)}.q:first-of-type{border-top:0}
+.q.miss{background:var(--warn);border-radius:8px;padding:12px 8px}
+.qt{font-weight:600}.qn{color:var(--mut);font-weight:400;margin-inline-end:6px}
+.opts{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:8px}
+.opts input{position:absolute;opacity:0;width:0}
+.opts label{display:flex;align-items:center;justify-content:center;text-align:center;font-size:13px;line-height:1.5;min-height:46px;padding:4px 6px;border:1px solid var(--bd);border-radius:8px;cursor:pointer}
+.opts input:checked+label{background:var(--ac);color:var(--acx);border-color:var(--ac);font-weight:600}
+.opts input:focus-visible+label{outline:3px solid var(--ac);outline-offset:2px}
+@media(max-width:560px){.opts{grid-template-columns:1fr 1fr}.g2{grid-template-columns:1fr}}
+#bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);padding:8px 0}
+.pg{height:8px;background:var(--bd);border-radius:6px;overflow:hidden}.pg i{display:block;height:100%;width:0;background:var(--ac);transition:width .2s}
+.tabs{display:flex;gap:8px;margin:12px 0}.tabs button{flex:1;padding:10px;border:1px solid var(--ac);background:transparent;color:var(--ac);border-radius:10px;font-weight:600}
+.tabs button[aria-selected="true"]{background:var(--ac);color:var(--acx)}
+table{width:100%;border-collapse:collapse;font-size:14px}th,td{padding:7px 8px;border-bottom:1px solid var(--bd);text-align:start;vertical-align:top}th{color:var(--mut);font-weight:600}
+.scroll{overflow-x:auto}
+.meter{height:12px;background:var(--bd);border-radius:6px;overflow:hidden;min-width:80px}.meter i{display:block;height:100%}
+.big{font-size:44px;font-weight:800;line-height:1.2}
+.pill{display:inline-block;padding:2px 12px;border-radius:20px;color:#fff;font-size:13px;font-weight:600}
+.risk{background:var(--warn);color:var(--warnx);border:1px solid var(--l3);border-radius:12px;padding:14px;margin:14px 0}
+.hide{display:none}
+@media print{body{background:#fff;color:#000}#bar,.tabs,.noprint{display:none!important}.card{break-inside:avoid;border-color:#999}.panel.hide{display:none!important}}
+</style>
+</head>
+<body>
+<main>
+<div class="noprint" style="text-align:end"><button class="btn alt" id="tm" style="padding:6px 14px;font-size:14px">پنل مشاور</button></div>
+<div id="intro">
+  <h1>پرسشنامه سلامت عمومی GHQ-28</h1>
+  <p class="mut">فرم ۲۸ سؤالی گلدبرگ و هیلیر (۱۹۷۹) برای غربالگری اختلالات روانی غیرروان‌پریشی</p>
+  <div class="card">
+    <h2>راهنمای تکمیل</h2>
+    <p>لطفاً به هر سؤال بر اساس وضعیت <b>چند هفته اخیر</b> خود پاسخ دهید، نه گذشته دور. برای هر سؤال دقیقاً یک گزینه را انتخاب کنید. پاسخ درست یا غلط وجود ندارد و نخستین پاسخ معمولاً دقیق‌ترین است.</p>
+    <p class="mut">این برنامه ابزار غربالگری است و جایگزین تشخیص بالینی نیست.</p>
+  </div>
+  <div class="card">
+    <h2>مشخصات</h2>
+    <div class="g2">
+      <div><label class="f" for="nm">نام و نام خانوادگی (یا کد پرونده)</label><input id="nm" autocomplete="off"></div>
+      <div><label class="f" for="ag">سن</label><input id="ag" type="number" min="10" max="110" inputmode="numeric"></div>
+      <div><label class="f" for="gn">جنسیت</label><select id="gn"><option value="">انتخاب کنید</option><option>زن</option><option>مرد</option><option>سایر</option></select></div>
+      <div><label class="f" for="ed">تحصیلات</label><select id="ed"><option value="">انتخاب کنید</option><option>زیر دیپلم</option><option>دیپلم</option><option>کارشناسی</option><option>کارشناسی ارشد و بالاتر</option></select></div>
+      <div><label class="f" for="ms">وضعیت تأهل</label><select id="ms"><option value="">انتخاب کنید</option><option>مجرد</option><option>متأهل</option><option>همسر فوت‌شده / جدا‌شده</option></select></div>
+      <div><label class="f" for="jb">پایه / کلاس</label><input id="jb" autocomplete="off"></div>
+    </div>
+  </div>
+</div>
+<div id="bar" class="noprint hide"><div class="pg"><i id="pgi"></i></div><div class="mut" id="pgt"></div></div>
+<form id="form" onsubmit="return false"></form>
+<div class="noprint" style="text-align:center;margin:20px 0"><button class="btn" id="sub">مشاهده نتیجه</button><p id="err" class="mut" style="color:var(--l3)"></p></div>
+<div id="res" class="hide">
+  <div class="tabs noprint" id="tabs" role="tablist"><button role="tab" id="t1" aria-selected="true">گزارش تخصصی (روانشناس)</button><button role="tab" id="t2" aria-selected="false">گزارش ساده (شرکت‌کننده)</button></div>
+  <div id="p1" class="panel"></div><div id="p2" class="panel hide"></div>
+  <div class="noprint" style="display:flex;gap:10px;flex-wrap:wrap;margin:16px 0"><button class="btn" id="prt">چاپ / ذخیره PDF</button><button class="btn alt" id="rst">آزمون جدید</button></div>
+</div>
+<div id="tp" class="hide"><h1>پنل مشاور</h1><div class="card noprint"><p>کدهایی که دانش‌آموزان فرستاده‌اند را اینجا بچسبانید (هر کد در یک خط یا با فاصله).</p><textarea id="codes" rows="6" dir="ltr"></textarea><div style="margin-top:10px"><button class="btn" id="an">تحلیل کدها</button></div><p id="terr" class="mut"></p></div><div id="tlist" class="noprint"></div><div id="tdet"></div></div>
+</main>
+<script>
+const S=[
+{k:'A',n:'علائم جسمانی',d:'شکایات بدنی که اغلب با فشار روانی همراه‌اند'},
+{k:'B',n:'اضطراب و بی‌خوابی',d:'تنش، نگرانی، ترس و اختلال خواب'},
+{k:'C',n:'اختلال در کارکرد اجتماعی',d:'توانایی انجام کارهای روزمره و احساس کفایت'},
+{k:'D',n:'افسردگی شدید',d:'بی‌ارزشی، ناامیدی و افکار مرگ یا خودکشی'}];
+const I=[
+['آیا احساس کرده‌اید که حالتان کاملاً خوب و سالم است؟','a'],
+['آیا احساس کرده‌اید که به داروی تقویتی نیاز دارید؟','n'],
+['آیا احساس کرده‌اید که ضعیف و بی‌حال شده‌اید؟','n'],
+['آیا احساس کرده‌اید که بیمار هستید؟','n'],
+['آیا سردرد داشته‌اید؟','n'],
+['آیا احساس فشار در سر یا احساس بستن نواری تنگ دور سرتان را داشته‌اید؟','n'],
+['آیا دوره‌هایی از گرما یا سرمای ناگهانی در بدن خود احساس کرده‌اید؟','n'],
+['آیا به علت نگرانی دچار بی‌خوابی شده‌اید؟','n'],
+['آیا خوابتان ناآرام و بریده‌بریده بوده است؟','n'],
+['آیا احساس کرده‌اید که دائماً تحت فشار و استرس هستید؟','n'],
+['آیا احساس کرده‌اید که عصبی و بدخلق شده‌اید؟','n'],
+['آیا بدون دلیل موجه دچار ترس یا وحشت شده‌اید؟','n'],
+['آیا احساس کرده‌اید که همه چیز بر شما فشار می‌آورد؟','n'],
+['آیا احساس عصبی بودن و تنش درونی داشته‌اید؟','n'],
+['آیا توانسته‌اید خود را مشغول و فعال نگه دارید؟','p'],
+['آیا انجام کارهایتان بیشتر از معمول طول کشیده است؟','q'],
+['آیا احساس کرده‌اید که در مجموع کارها را خوب انجام داده‌اید؟','p'],
+['آیا از نحوه انجام کارهایتان راضی بوده‌اید؟','p'],
+['آیا احساس کرده‌اید که نقش مفیدی در زندگی دارید؟','p'],
+['آیا احساس کرده‌اید که توانایی تصمیم‌گیری درباره مسائل را دارید؟','p'],
+['آیا توانسته‌اید از فعالیت‌های روزمره خود لذت ببرید؟','p'],
+['آیا خود را فردی بی‌ارزش دانسته‌اید؟','n'],
+['آیا احساس کرده‌اید که زندگی کاملاً ناامیدکننده است؟','n'],
+['آیا احساس کرده‌اید که زندگی ارزش زیستن ندارد؟','n'],
+['آیا فکر کرده‌اید که ممکن است به زندگی خود پایان دهید؟','n'],
+['آیا گاهی احساس کرده‌اید که به‌خاطر عصبی بودن نمی‌توانید کاری انجام دهید؟','n'],
+['آیا متوجه شده‌اید که آرزو می‌کنید مرده بودید و از همه چیز رها می‌شدید؟','n'],
+['آیا فکر خودکشی بارها به ذهنتان آمده است؟','n']];
+const O={a:['بهتر از معمول','مثل معمول','بدتر از معمول','خیلی بدتر از معمول'],
+p:['بیشتر از معمول','مثل معمول','کمتر از معمول','خیلی کمتر از معمول'],
+q:['سریع‌تر از معمول','مثل معمول','بیشتر از معمول','خیلی بیشتر از معمول'],
+n:['اصلاً','نه بیشتر از معمول','کمی بیشتر از معمول','خیلی بیشتر از معمول']};
+const RISK=[23,24,26,27]; // اندیس سؤال‌های ۲۴، ۲۵، ۲۷، ۲۸
+const $=id=>document.getElementById(id),fa=n=>Number(n).toLocaleString('fa-IR'),LV=['در محدوده طبیعی','خفیف','متوسط','شدید'];
+const form=$('form');
+S.forEach((s,si)=>{let h=`<section class="card sec"><h2>بخش ${s.n}</h2><p class="mut">${s.d}</p>`;
+for(let i=si*7;i<si*7+7;i++){h+=`<div class="q" id="q${i}"><div class="qt"><span class="qn">${fa(i+1)}.</span>${I[i][0]}</div><div class="opts">`+
+O[I[i][1]].map((t,j)=>`<span><input type="radio" name="r${i}" id="r${i}_${j}" value="${j}"><label for="r${i}_${j}">${t}</label></span>`).join('')+'</div></div>'}
+form.insertAdjacentHTML('beforeend',h+'</section>')});
+function prog(){const n=I.filter((_,i)=>form.querySelector(`input[name=r${i}]:checked`)).length;
+$('pgi').style.width=n/28*100+'%';$('pgt').textContent=`${fa(n)} از ${fa(28)} سؤال پاسخ داده شد`;$('bar').classList.remove('hide')}
+form.addEventListener('change',e=>{prog();const q=e.target.closest('.q');if(q)q.classList.remove('miss')});
+function lvSub(x){return x<=7?0:x<=11?1:x<=15?2:3}
+function lvTot(x){return x<23?0:x<=40?1:x<=60?2:3}
+function calc(){return build(I.map((_,i)=>+form.querySelector(`input[name=r${i}]:checked`).value))}
+function build(a){
+const sub=S.map((s,k)=>{const v=a.slice(k*7,k*7+7);return{...s,lik:v.reduce((x,y)=>x+y,0),bin:v.filter(x=>x>=2).length}});
+return{a,sub,lik:a.reduce((x,y)=>x+y,0),bin:a.filter(x=>x>=2).length}}
+const bar=(v,m,l)=>`<div class="meter"><i style="width:${v/m*100}%;background:var(--l${l})"></i></div>`;
+const pill=l=>`<span class="pill" style="background:var(--l${l})">${LV[l]}</span>`;
+function demo(){const g=id=>D[id]||'—';return `<table><tr><th>نام / کد</th><td>${g('nm')}</td><th>سن</th><td>${D.ag?fa(D.ag):'—'}</td><th>جنسیت</th><td>${g('gn')}</td></tr><tr><th>تحصیلات</th><td>${g('ed')}</td><th>تأهل</th><td>${g('ms')}</td><th>پایه / کلاس</th><td>${g('jb')}</td></tr><tr><th>تاریخ اجرا</th><td colspan="5">${D.dt||'—'}</td></tr></table>`}
+function pro(r){const lt=lvTot(r.lik),flags=RISK.filter(i=>r.a[i]>=2);
+let h=`<div class="card"><h2>گزارش تخصصی GHQ-28</h2><div class="scroll">${demo()}</div></div>`;
+if(flags.length)h+=`<div class="risk"><b>هشدار ایمنی:</b> پاسخ‌های مثبت به سؤال‌های ${flags.map(i=>fa(i+1)).join('، ')} (افکار بی‌ارزشی، بی‌معنایی زندگی، خودکشی یا آرزوی مرگ). ارزیابی بالینی مستقیم خطر خودکشی (طرح، وسیله، سابقه، عوامل محافظ) ضروری است، صرف‌نظر از نمره کل.</div>`;
+h+=`<div class="card"><h3 style="margin-top:0">نمره کل</h3><div class="g2"><div><div class="mut">روش لیکرت (۰–۸۴)</div><div class="big" style="color:var(--l${lt})">${fa(r.lik)}</div>${bar(r.lik,84,lt)}<p>${r.lik>=23?'بالاتر از نقطه برش (۲۳): مشکوک به اختلال روانی':'پایین‌تر از نقطه برش (۲۳)'}</p></div>
+<div><div class="mut">روش نمره‌گذاری GHQ (۰-۰-۱-۱، دامنه ۰–۲۸)</div><div class="big">${fa(r.bin)}</div>${bar(r.bin,28,r.bin>=6?2:0)}<p>${r.bin>=6?'برابر یا بالاتر از نقطه برش (۶)':'پایین‌تر از نقطه برش (۶)'}</p></div></div><p>شدت کلی نشانه‌ها (تقریبی): ${pill(lt)}</p></div>`;
+h+=`<div class="card"><h3 style="margin-top:0">خرده‌مقیاس‌ها</h3><div class="scroll"><table><tr><th>مقیاس</th><th>لیکرت (۰–۲۱)</th><th>GHQ (۰–۷)</th><th>نمودار</th><th>سطح</th></tr>`+
+r.sub.map(s=>{const l=lvSub(s.lik);return `<tr><td>${s.k}. ${s.n}</td><td>${fa(s.lik)}</td><td>${fa(s.bin)}</td><td>${bar(s.lik,21,l)}</td><td>${pill(l)}</td></tr>`}).join('')+`</table></div></div>`;
+const hi=[...r.sub].sort((x,y)=>y.lik-x.lik),top=hi[0];
+h+=`<div class="card"><h3 style="margin-top:0">تفسیر</h3><p>نمره کل ${fa(r.lik)} (لیکرت) و ${fa(r.bin)} (GHQ) است و ${r.lik>=23||r.bin>=6?'فرد بالاتر از نقطه برش قرار می‌گیرد؛ احتمال وجود ناراحتی روانی بالینی‌شدنی مطرح است.':'فرد پایین‌تر از نقطه برش قرار می‌گیرد؛ شواهد غربالگری برای ناراحتی روانی قابل توجه دیده نمی‌شود.'} بیشترین نمره مربوط به «${top.n}» (${fa(top.lik)} از ۲۱) است${hi[1].lik>=8?' و پس از آن «'+hi[1].n+'» ('+fa(hi[1].lik)+')':''}. ${r.sub[3].lik>=8?'نمره بخش افسردگی شدید قابل توجه است و پیگیری تشخیصی (مثلاً مصاحبه بالینی و ابزارهایی مانند BDI-II) توصیه می‌شود.':''}</p>
+<p class="mut">نقاط برش ۲۳ (لیکرت) و ۶ (GHQ) بر پایه مطالعات اعتباریابی ایرانی انتخاب شده‌اند و ممکن است بسته به جمعیت و مرکز متفاوت باشند. سطح‌بندی خرده‌مقیاس‌ها و شدت کلی (۰–۷ طبیعی، ۸–۱۱ خفیف، ۱۲–۱۵ متوسط، ۱۶+ شدید؛ کل: زیر ۲۳، ۲۳–۴۰، ۴۱–۶۰، بالای ۶۰) تقریبی و صرفاً برای راهنمایی است. GHQ-28 ابزار غربالگری است و تشخیص نمی‌دهد؛ نتیجه باید با مصاحبه بالینی و زمینه زندگی فرد سنجیده شود.</p></div>`;
+h+=`<div class="card"><h3 style="margin-top:0">پاسخ به تفکیک سؤال</h3><div class="scroll"><table><tr><th>#</th><th>سؤال</th><th>پاسخ</th><th>نمره</th></tr>`+
+r.a.map((v,i)=>`<tr style="${RISK.includes(i)&&v>=2?'color:var(--l3);font-weight:600':''}"><td>${fa(i+1)}</td><td>${I[i][0]}</td><td>${O[I[i][1]][v]}</td><td>${fa(v)}</td></tr>`).join('')+`</table></div></div>`;
+return h}
+const MSG=[
+['بدن شما در این مدت نشانه‌ای از فشار جدی نشان نداده است.','برخی علائم جسمانی مثل خستگی یا سردرد در شما دیده می‌شود که ممکن است با استرس مرتبط باشد.','علائم جسمانی شما قابل توجه است. ممکن است بخشی از آن به فشار روانی ربط داشته باشد؛ بهتر است پزشک یا روانشناس هم بررسی کند.','علائم جسمانی شما زیاد است. حتماً با پزشک و روانشناس صحبت کنید.'],
+['خواب و آرامش شما در وضعیت مناسبی است.','کمی تنش یا مشکل خواب دارید که در دوره‌های پرفشار طبیعی است.','نگرانی، تنش یا مشکل خواب در شما محسوس است و ارزش دارد که به آن توجه کنید.','اضطراب و مشکل خواب شما زیاد است و گفت‌وگو با یک روانشناس می‌تواند کمک بزرگی باشد.'],
+['در انجام کارهای روزمره و احساس توانمندی وضع خوبی دارید.','در انجام کارها یا لذت بردن از روزمرگی کمی افت دارید.','انجام کارهای روزمره برایتان سخت‌تر شده است.','انجام کارهای روزمره برایتان به‌طور جدی دشوار شده است و حمایت حرفه‌ای می‌تواند کمک کند.'],
+['نشانه‌ای از غم یا ناامیدی شدید دیده نمی‌شود.','کمی احساس غم یا کم‌ارزشی دارید.','احساس غم، ناامیدی یا بی‌ارزشی در شما پررنگ است.','احساس غم و ناامیدی در شما شدید است. لطفاً هرچه زودتر با یک متخصص صحبت کنید.']];
+function simple(r){const lt=lvTot(r.lik),flags=RISK.filter(i=>r.a[i]>=2);
+const head=['نتیجه شما نشان می‌دهد در این چند هفته وضعیت روانی‌تان در محدوده طبیعی بوده است.','نتیجه شما نشان می‌دهد کمی تحت فشار بوده‌اید. این در بسیاری از افراد دیده می‌شود.','نتیجه شما نشان می‌دهد در این مدت فشار روانی قابل توجهی را تحمل کرده‌اید.','نتیجه شما نشان می‌دهد در این مدت سختی زیادی را می‌گذرانید و ارزش دارد حمایت بگیرید.'][lt];
+let h=`<div class="card"><h2>نتیجه شما</h2><p style="font-size:18px">${head}</p><p>نمره کل: <b>${fa(r.lik)}</b> از ${fa(84)}</p>${bar(r.lik,84,lt)}</div>`;
+h+=`<div class="card"><h3 style="margin-top:0">وضعیت شما در چهار زمینه</h3>`+r.sub.map((s,k)=>{const l=lvSub(s.lik);return `<p><b>${s.n}:</b> ${pill(l)}<br>${MSG[k][l]}</p>`}).join('')+`</div>`;
+if(flags.length)h+=`<div class="risk"><b>یک نکته مهم:</b> در پاسخ‌هایتان به احساس ناامیدی یا افکار آسیب به خود اشاره کرده‌اید. شما تنها نیستید و این حال قابل درمان است. لطفاً امروز با یک روانشناس، پزشک یا فرد مورداعتمادتان صحبت کنید. اگر احساس می‌کنید ممکن است به خودتان آسیب بزنید، فوراً با اورژانس محل زندگی‌تان تماس بگیرید (در ایران: ۱۱۵ یا اورژانس اجتماعی ۱۲۳).</div>`;
+h+=`<div class="card"><h3 style="margin-top:0">چه کار می‌توانید بکنید؟</h3><p>${lt===0?'ادامه خواب منظم، تحرک و ارتباط با نزدیکان به حفظ این وضعیت کمک می‌کند.':'خواب منظم، پیاده‌روی روزانه، صحبت با آدم‌های نزدیک و کم کردن فشارهای غیرضروری می‌تواند کمک کند. اگر این حال بیش از چند هفته ادامه داشت، با یک روانشناس صحبت کنید.'}</p><p class="mut">این پرسشنامه فقط یک غربالگری اولیه است، تشخیص نیست. فقط یک متخصص می‌تواند وضعیت شما را به‌طور کامل بررسی کند.</p></div>`;
+return h}
+$('sub').onclick=()=>{const miss=I.map((_,i)=>i).filter(i=>!form.querySelector(`input[name=r${i}]:checked`));
+I.forEach((_,i)=>$('q'+i).classList.toggle('miss',miss.includes(i)));
+if(miss.length){$('err').textContent=`${fa(miss.length)} سؤال بدون پاسخ مانده است. لطفاً سؤال‌های مشخص‌شده را کامل کنید.`;$('q'+miss[0]).scrollIntoView({behavior:'smooth',block:'center'});return}
+$('err').textContent='';const r=calc();D=gather();$('p1').innerHTML='';$('tabs').classList.add('hide');tab(2);$('p2').innerHTML=simple(r)+codeCard(r);
+['intro','form','bar'].forEach(x=>$(x).classList.add('hide'));$('sub').parentNode.classList.add('hide');$('res').classList.remove('hide');window.scrollTo(0,0)};
+function tab(n){[1,2].forEach(k=>{$('p'+k).classList.toggle('hide',k!==n);$('t'+k).setAttribute('aria-selected',k===n)})}
+$('t1').onclick=()=>tab(1);$('t2').onclick=()=>tab(2);
+$('prt').onclick=()=>window.print();
+$('rst').onclick=()=>{form.reset();document.querySelectorAll('.q.miss').forEach(q=>q.classList.remove('miss'));['nm','ag','gn','ed','ms','jb'].forEach(x=>$(x).value='');
+$('res').classList.add('hide');['intro','form'].forEach(x=>$(x).classList.remove('hide'));$('sub').parentNode.classList.remove('hide');tab(1);prog();window.scrollTo(0,0)};
+let D={},T=[];
+const gather=()=>({nm:$('nm').value,ag:$('ag').value,gn:$('gn').value,ed:$('ed').value,ms:$('ms').value,jb:$('jb').value,dt:new Date().toLocaleDateString('fa-IR')});
+function enc(r){const x=[D.nm,D.ag,D.gn,D.ed,D.ms,D.jb,D.dt,r.a.join('')];return 'GHQ1.'+btoa(unescape(encodeURIComponent(JSON.stringify(x)))).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'')}
+function dec(c){try{c=c.trim().replace(/^GHQ1\./,'').replace(/-/g,'+').replace(/_/g,'/');while(c.length%4)c+='=';const x=JSON.parse(decodeURIComponent(escape(atob(c))));if(!/^[0-3]{28}$/.test(x[7]))return null;return{D:{nm:x[0],ag:x[1],gn:x[2],ed:x[3],ms:x[4],jb:x[5],dt:x[6]},r:build(x[7].split('').map(Number))}}catch(e){return null}}
+function codeCard(r){return `<div class="card noprint"><h3 style="margin-top:0">کد نتیجه برای مشاور</h3><p>این کد را برای مشاور یا معلم خود بفرستید تا نتیجه کامل را بررسی کند.</p><textarea id="cd" rows="3" readonly dir="ltr" onclick="this.select()">${enc(r)}</textarea><div style="display:flex;gap:10px;margin-top:10px;flex-wrap:wrap"><button class="btn" onclick="copyCode()">کپی کد</button><button class="btn alt" onclick="shareCode()">ارسال کد</button></div><p id="cm" class="mut"></p></div>`}
+function copyCode(){const t=$('cd');t.select();if(navigator.clipboard)navigator.clipboard.writeText(t.value).catch(()=>document.execCommand('copy'));else document.execCommand('copy');$('cm').textContent='کد کپی شد.'}
+function shareCode(){const v=$('cd').value;if(navigator.share)navigator.share({text:v}).catch(()=>{});else copyCode()}
+$('tm').onclick=()=>{if(!$('tp').classList.contains('hide')){location.reload();return}
+['intro','form','bar','res'].forEach(x=>$(x).classList.add('hide'));$('sub').parentNode.classList.add('hide');$('tp').classList.remove('hide');$('tm').textContent='بازگشت به آزمون';
+try{$('codes').value=localStorage.getItem('ghqCodes')||''}catch(e){}if($('codes').value.trim())an()};
+function an(){const ls=$('codes').value.split(/\s+/).filter(Boolean);T=[];let bad=0;ls.forEach(c=>{const d=dec(c);d?T.push(d):bad++});
+try{localStorage.setItem('ghqCodes',$('codes').value)}catch(e){}
+$('terr').textContent=bad?`${fa(bad)} کد نامعتبر نادیده گرفته شد.`:'';T.sort((a,b)=>b.r.lik-a.r.lik);
+const hi=T.filter(t=>t.r.lik>=23).length,rk=T.filter(t=>RISK.some(i=>t.r.a[i]>=2)).length;
+$('tlist').innerHTML=T.length?`<div class="card"><h2>فهرست کلاس</h2><p>${fa(T.length)} دانش‌آموز؛ ${fa(hi)} نفر بالاتر از نقطه برش؛ ${fa(rk)} نفر با هشدار ایمنی. فهرست از بالاترین نمره مرتب شده است.</p><div class="scroll"><table><tr><th>نام</th><th>پایه</th><th>لیکرت</th><th>GHQ</th><th>سطح</th><th>هشدار</th><th></th></tr>`+T.map((t,i)=>{const l=lvTot(t.r.lik),k=RISK.some(j=>t.r.a[j]>=2);return `<tr><td>${t.D.nm||'—'}</td><td>${t.D.jb||'—'}</td><td>${fa(t.r.lik)}</td><td>${fa(t.r.bin)}</td><td>${pill(l)}</td><td>${k?'<b style="color:var(--l3)">دارد</b>':'—'}</td><td><button class="btn alt" style="padding:3px 12px" onclick="det(${i})">گزارش</button></td></tr>`}).join('')+'</table></div></div>':''}
+function det(i){D=T[i].D;const r=T[i].r;$('tdet').innerHTML=`<div class="noprint"><button class="btn alt" onclick="window.print()">چاپ گزارش</button></div>`+pro(r)+'<h2 style="margin-top:28px">نسخه ساده برای ارائه به دانش‌آموز</h2>'+simple(r);$('tdet').scrollIntoView({behavior:'smooth'})}
+$('an').onclick=an;
+prog();
+if("serviceWorker" in navigator)navigator.serviceWorker.register("sw.js").catch(()=>{});
+</script>
+</body>
+</html>
